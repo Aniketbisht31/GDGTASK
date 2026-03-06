@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCanvas } from '../context/CanvasContext';
 import { LayersPanel } from './LayersPanel';
+import { formatLabelValue } from '../utils/canvasUtils';
 
 export const RightPanel: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'props' | 'layers'>('props');
@@ -44,21 +45,21 @@ export const RightPanel: React.FC = () => {
                             <div className="prop-row">
                                 <div className="prop-field">
                                     <label className="prop-label">X</label>
-                                    <input type="number" className="prop-input" value={Math.round(sel.x)} onChange={e => handleNum('x', e.target.value)} />
+                                    <input type="number" className="prop-input" value={formatLabelValue(sel.x)} onChange={e => handleNum('x', e.target.value)} />
                                 </div>
                                 <div className="prop-field">
                                     <label className="prop-label">Y</label>
-                                    <input type="number" className="prop-input" value={Math.round(sel.y)} onChange={e => handleNum('y', e.target.value)} />
+                                    <input type="number" className="prop-input" value={formatLabelValue(sel.y)} onChange={e => handleNum('y', e.target.value)} />
                                 </div>
                             </div>
                             <div className="prop-row">
                                 <div className="prop-field">
                                     <label className="prop-label">Width</label>
-                                    <input type="number" className="prop-input" value={Math.round(sel.width)} onChange={e => handleNum('width', e.target.value)} />
+                                    <input type="number" className="prop-input" value={formatLabelValue(sel.width)} onChange={e => handleNum('width', e.target.value)} />
                                 </div>
                                 <div className="prop-field">
                                     <label className="prop-label">Height</label>
-                                    <input type="number" className="prop-input" value={Math.round(sel.height)} onChange={e => handleNum('height', e.target.value)} />
+                                    <input type="number" className="prop-input" value={formatLabelValue(sel.height)} onChange={e => handleNum('height', e.target.value)} />
                                 </div>
                             </div>
                         </div>
