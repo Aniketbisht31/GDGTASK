@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# ✦ Design Canvas Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A specialized visual design tool built with React and TypeScript, inspired by simplified design workspace workflows.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dynamic Element Creation**: Add rectangles, text blocks, and image placeholders.
+- **Interactive Manipulation**: Drag to reposition and use 8-handle resizing for precise control.
+- **Layer Management**: Control stacking order through the dedicated layers panel.
+- **Advanced Properties**: Dedicated property editor for colors, border radius, opacity, and typography.
+- **Native Undo/Redo**: Global state history management for seamless design iteration.
+- **Export Capabilities**: High-fidelity PNG export for finalized designs.
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Framework**: React 18
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS (Modern Dark Theme)
+- **Bundler**: Vite
+- **Integrations**: html2canvas for PNG rendering
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Project Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## ⌨️ Keyboard Shortcuts
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- `Delete` / `Backspace`: Remove selected element
+- `Ctrl + D`: Duplicate selected element
+- `Ctrl + Z`: Undo
+- `Ctrl + Shift + Z` or `Ctrl + Y`: Redo
