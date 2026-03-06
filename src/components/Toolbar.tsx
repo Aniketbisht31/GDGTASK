@@ -28,11 +28,18 @@ const ImageIcon = () => (
     </svg>
 );
 
-const tools: { id: ElementType | 'select'; label: string; Icon: React.ComponentType }[] = [
-    { id: 'select', label: 'Select (V)', Icon: SelectIcon },
-    { id: 'rectangle', label: 'Rectangle (R)', Icon: RectIcon },
-    { id: 'text', label: 'Text (T)', Icon: TextIcon },
-    { id: 'image', label: 'Image (I)', Icon: ImageIcon },
+interface ToolItem {
+    id: ElementType | 'select';
+    label: string;
+    shortcut: string;
+    Icon: React.ComponentType;
+}
+
+const TOOLBAR_ITEMS: ToolItem[] = [
+    { id: 'select', label: 'Select', shortcut: 'V', Icon: SelectIcon },
+    { id: 'rectangle', label: 'Rectangle', shortcut: 'R', Icon: RectIcon },
+    { id: 'text', label: 'Text', shortcut: 'T', Icon: TextIcon },
+    { id: 'image', label: 'Image', shortcut: 'I', Icon: ImageIcon },
 ];
 
 export const Toolbar: React.FC = () => {
@@ -41,11 +48,11 @@ export const Toolbar: React.FC = () => {
     return (
         <aside className="toolbar">
             <div className="toolbar-group">
-                {tools.map((tool) => (
+                {TOOLBAR_ITEMS.map((tool) => (
                     <button
                         key={tool.id}
                         className={`tool-button ${activeTool === tool.id ? 'active' : ''}`}
-                        title={tool.label}
+                        title={`${tool.label} (${tool.shortcut})`}
                         onClick={() => setActiveTool(tool.id)}
                     >
                         <tool.Icon />
