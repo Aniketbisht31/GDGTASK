@@ -9,6 +9,8 @@ export interface BaseElement {
     height: number;
     zIndex: number;
     name?: string;
+    rotation?: number;
+    isVisible?: boolean;
 }
 
 export interface RectangleElement extends BaseElement {
