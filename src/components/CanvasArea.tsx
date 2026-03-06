@@ -3,6 +3,13 @@ import { useCanvas } from '../context/CanvasContext';
 import { CanvasElementRender } from './CanvasElementRender';
 import { generateRandomColor } from '../utils/canvasUtils';
 
+const DEFAULT_TEXT = {
+    fontSize: 16,
+    fontFamily: 'Inter, sans-serif',
+    color: '#000000',
+    text: 'Double-click to edit',
+};
+
 export const CanvasArea: React.FC = () => {
     const { elements, activeTool, addElement, setSelectedElementId } = useCanvas();
     const boardRef = useRef<HTMLDivElement>(null);
@@ -33,10 +40,7 @@ export const CanvasArea: React.FC = () => {
                 type: 'text' as const,
                 x, y,
                 width: 160, height: 44,
-                text: 'Double-click to edit',
-                fontSize: 16,
-                fontFamily: 'Inter, sans-serif',
-                color: '#111111',
+                ...DEFAULT_TEXT,
                 bold: false,
                 italic: false,
                 align: 'left' as const,
