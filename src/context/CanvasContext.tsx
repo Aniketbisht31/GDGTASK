@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 import { CanvasElement, ElementType } from '../types';
+import { generateId, getDefaultName } from '../utils/canvasUtils';
 
 // Distributive Omit properly handles discriminated unions
 type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
@@ -68,9 +69,9 @@ export const CanvasProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     const addElement = useCallback((baseElement: NewElement) => {
         const newElement: CanvasElement = {
             ...baseElement,
-            id: crypto.randomUUID(),
+            id: generateId(),
             zIndex: elements.length,
-            name: baseElement.name || `${baseElement.type.charAt(0).toUpperCase() + baseElement.type.slice(1)} ${elements.length + 1}`,
+            name: baseElement.name || getDefaultName(baseElement.type, elements.length + 1),
         } as CanvasElement;
         const newElements = [...elements, newElement];
         pushHistory(newElements);
@@ -94,7 +95,7 @@ export const CanvasProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         if (!el) return;
         const newEl: CanvasElement = {
             ...el,
-            id: crypto.randomUUID(),
+            id: generateId(),
             x: el.x + 20,
             y: el.y + 20,
             zIndex: elements.length,
