@@ -62,7 +62,12 @@ function App() {
   return (
     <div className="app-container">
       <header className="topbar">
-        <div className="topbar-brand">✦ Design Canvas</div>
+        <div className="topbar-left">
+          <div className="topbar-brand">✦ Design Canvas</div>
+          <div className="topbar-gdg-badge">
+            <img src="/gdg-logo.png" alt="Google Developer Groups" className="gdg-logo" />
+          </div>
+        </div>
 
         <div className="topbar-actions">
           <button className="topbar-btn" onClick={undo} disabled={!canUndo} title="Undo (Ctrl+Z)">

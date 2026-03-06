@@ -67,6 +67,12 @@ textarea {
   flex-shrink: 0;
 }
 
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .topbar-brand {
   font-weight: 700;
   font-size: 15px;
@@ -76,6 +82,34 @@ textarea {
   background-clip: text;
   letter-spacing: 0.5px;
   white-space: nowrap;
+}
+
+.topbar-gdg-badge {
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  /* slightly brighter */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.topbar-gdg-badge:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(108, 99, 255, 0.4);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.gdg-logo {
+  height: 20px;
+  /* smaller height for horizontal logo */
+  width: auto;
+  display: block;
+  filter: brightness(1.2);
+  /* make the gray text pop more */
 }
 
 .topbar-actions {
