@@ -72,6 +72,8 @@ export const CanvasProvider: React.FC<{ children: ReactNode }> = ({ children }) 
             id: generateId(),
             zIndex: elements.length,
             name: baseElement.name || getDefaultName(baseElement.type, elements.length + 1),
+            rotation: 0,
+            isVisible: true,
         } as CanvasElement;
         const newElements = [...elements, newElement];
         pushHistory(newElements);
@@ -100,6 +102,8 @@ export const CanvasProvider: React.FC<{ children: ReactNode }> = ({ children }) 
             y: el.y + 20,
             zIndex: elements.length,
             name: `${el.name || el.type} copy`,
+            rotation: el.rotation ?? 0,
+            isVisible: true,
         };
         const newElements = [...elements, newEl];
         pushHistory(newElements);
