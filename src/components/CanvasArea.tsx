@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useCanvas } from '../context/CanvasContext';
 import { CanvasElementRender } from './CanvasElementRender';
+import { generateRandomColor } from '../utils/canvasUtils';
 
 export const CanvasArea: React.FC = () => {
     const { elements, activeTool, addElement, setSelectedElementId } = useCanvas();
@@ -23,7 +24,7 @@ export const CanvasArea: React.FC = () => {
                 type: 'rectangle' as const,
                 x, y,
                 width: 120, height: 80,
-                fill: `hsl(${Math.floor(Math.random() * 360)}, 65%, 65%)`,
+                fill: generateRandomColor(),
                 borderRadius: 0,
                 opacity: 1,
             });
