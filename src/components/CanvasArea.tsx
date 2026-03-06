@@ -65,8 +65,8 @@ export const CanvasArea: React.FC = () => {
             >
                 {elements.length === 0 && (
                     <div className="empty-canvas-hint">
-                        <p>👆 Click a tool, then click here to add</p>
-                        <small>Rectangle, Text, or Image block</small>
+                        <p>😊 Start designing</p>
+                        <small>Select a tool from the toolbar</small>
                     </div>
                 )}
                 {[...elements]
