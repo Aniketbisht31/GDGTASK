@@ -90,8 +90,7 @@ export const CanvasElementRender: React.FC<Props> = ({ element }) => {
     };
 
     const getOpacity = () => {
-        if (element.type === 'rectangle') return element.opacity;
-        return 1;
+        return (element as any).opacity ?? 1;
     };
 
     const renderContent = () => {
