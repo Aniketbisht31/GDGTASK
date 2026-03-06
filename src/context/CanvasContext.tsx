@@ -6,24 +6,39 @@ type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : nev
 type NewElement = DistributiveOmit<CanvasElement, 'id' | 'zIndex'>;
 
 interface CanvasContextType {
+    /** Currently rendered elements on the canvas */
     elements: CanvasElement[];
+    /** ID of the element being edited */
     selectedElementId: string | null;
+    /** Current tool (select, rectangle, text, image) */
     activeTool: ElementType | 'select';
     zoom: number;
     setZoom: (zoom: number) => void;
     canUndo: boolean;
     canRedo: boolean;
+    /** Add a new element to the state */
     addElement: (element: NewElement) => void;
+    /** Update specific properties of an existing element */
     updateElement: (id: string, updates: Partial<CanvasElement>) => void;
+    /** Remove an element from the canvas */
     deleteElement: (id: string) => void;
+    /** Create a copy of an existing element with offset */
     duplicateElement: (id: string) => void;
     setSelectedElementId: (id: string | null) => void;
     setActiveTool: (tool: ElementType | 'select') => void;
+    /** Move an element forward by one level */
     bringForward: (id: string) => void;
+    /** Move an element backward by one level */
     sendBackward: (id: string) => void;
+    /** Bring an element to the topmost layer */
     bringToFront: (id: string) => void;
+    /** Move an element to the bottom layer */
     sendToBack: (id: string) => void;
+    /** Reorder an element to a specific index */
+    reorder: (id: string, newIndex: number) => void;
+    /** Undo last action */
     undo: () => void;
+    /** Redo last undone action */
     redo: () => void;
 }
 
@@ -151,6 +166,7 @@ export const CanvasProvider: React.FC<{ children: ReactNode }> = ({ children }) 
                 sendBackward,
                 bringToFront,
                 sendToBack,
+                reorder,
                 undo,
                 redo,
             }}
