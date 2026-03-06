@@ -8,12 +8,14 @@ export const RightPanel: React.FC = () => {
 
     const sel = elements.find(e => e.id === selectedElementId);
 
+    /** Handle numerical input changes with validation */
     const handleNum = (name: string, val: string) => {
         if (!sel) return;
         const n = parseFloat(val);
         if (!isNaN(n)) updateElement(sel.id, { [name]: n } as any);
     };
 
+    /** Handle string/text input changes */
     const handleStr = (name: string, val: string) => {
         if (!sel) return;
         updateElement(sel.id, { [name]: val } as any);
