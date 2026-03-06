@@ -1,3 +1,7 @@
+https://gdgtask-xi.vercel.app/ app deployed on vercel
+
+
+
 <img width="1366" height="768" alt="Screenshot 2026-03-06 180903" src="https://github.com/user-attachments/assets/07525b88-851d-420e-8cde-febfc7da5951" />
 
 <img width="1366" height="768" alt="Screenshot 2026-03-06 181012" src="https://github.com/user-attachments/assets/25dd72f9-0622-4cdd-9d45-cb0047f4a86d" />
