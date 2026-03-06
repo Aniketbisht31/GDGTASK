@@ -17,3 +17,8 @@ export const generateRandomColor = (): string => {
 export const getDefaultName = (type: string, count: number): string => {
     return `${type.charAt(0).toUpperCase() + type.slice(1)} ${count}`;
 };
+
+/** Generate a placeholder image URL */
+export const generateImagePlaceholder = (width = 400, height = 300): string => {
+    return `https://picsum.photos/seed/${Math.random().toString(36).substring(7)}/${width}/${height}`;
+};

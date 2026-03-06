@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useCanvas } from '../context/CanvasContext';
 import { CanvasElementRender } from './CanvasElementRender';
-import { generateRandomColor } from '../utils/canvasUtils';
+import { generateRandomColor, generateImagePlaceholder } from '../utils/canvasUtils';
 
 const DEFAULT_TEXT = {
     fontSize: 16,
@@ -50,7 +50,7 @@ export const CanvasArea: React.FC = () => {
                 type: 'image' as const,
                 x, y,
                 width: 200, height: 150,
-                src: `https://picsum.photos/seed/${Date.now()}/400/300`,
+                src: generateImagePlaceholder(),
                 objectFit: 'cover' as const,
             });
         }
